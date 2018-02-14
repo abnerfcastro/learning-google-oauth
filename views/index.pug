@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+    head
+        title Learning Google OAuth
+        meta(charset='utf-8')
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css")
+    body
+        .navbar.navbar-default
+            .container
+                .navbar-header
+                    .navbar-brand Learning Google OAuth
+        
+                p.navbar-text.navbar-right
+                    // [START profile]
+                    if profile
+                        if profile.image
+                            img.img-circle(src=profile.image, width=24)
+                        span &nbsp;#{profile.displayName}&nbsp;
+                            a(href=logout) (logout)
+                    else
+                        a(href=login) Login
+                    // [END profile]
+        .container
+            h1 Hello, World!
+            if profile
+                p.lead You're authenticated as #{profile.displayName}
+            else
+                p.lead You're not authenticated.
